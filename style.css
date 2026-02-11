@@ -1,126 +1,170 @@
+:root {
+  --bg1: #3b82f6;
+  --bg2: #9333ea;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --btn1: #06b6d4;
+  --btn2: #3b82f6;
+}
+
+[data-theme="light"] {
+  --bg1: #f3f4f6;
+  --bg2: #e5e7eb;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --text: #111827;
+  --btn1: #2563eb;
+  --btn2: #7c3aed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    background: linear-gradient(135deg, #3b82f6, #9333ea);
-    color: white;
-    text-shadow: 0 0 2px rgba(255,255,255,0.8),
-                 0 0 6px rgba(0,0,0,0.7);
+  margin: 0;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .page {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* меню */
+.nav {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.theme-btn {
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.25);
 }
 
 /* Верхняя карточка */
 .header {
-    width: 100%;
-    max-width: 700px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 50px 40px;
-    text-align: center;
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 700px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: background 0.5s ease, border-color 0.5s ease;
 }
 
 .header h1 {
-    font-size: 42px;
-    margin: 0 0 10px 0;
-    text-shadow: 0 0 2px rgba(255,255,255,0.8),
-                 0 0 6px rgba(0,0,0,0.7);
+  font-size: 42px;
+  margin: 0 0 10px 0;
 }
 
 .header p {
-    margin: 0 0 25px 0;
-    font-size: 18px;
-    opacity: 0.9;
-    text-shadow: 0 0 2px rgba(255,255,255,0.8),
-                 0 0 6px rgba(0,0,0,0.7);
+  margin: 0 0 25px 0;
+  font-size: 18px;
+  opacity: 0.9;
 }
-
 
 /* Кнопка */
 .btn {
-    display: inline-block;
-    padding: 14px 28px;
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
-    background: linear-gradient(135deg, #06b6d4, #3b82f6);
-    border-radius: 12px;
-    transition: 0.3s ease;
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  color: var(--text);
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--btn1), var(--btn2));
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Контент (портфолио) */
 .content {
-    width: 100%;
-    max-width: 1000px;
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-
-    color: white; /* важная строка */
-    text-shadow: 0 0 2px rgba(255,255,255,0.8),
-                 0 0 6px rgba(0,0,0,0.7); /* обводка */
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: background 0.5s ease, border-color 0.5s ease;
 }
 
-
 .card h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 22px;
 }
 
 .card p {
-    margin: 0;
-    font-size: 16px;
-    opacity: 0.9;
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
 }
 
-
 .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .skill {
-    padding: 8px 12px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    font-size: 14px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 14px;
 }
 
 /* Адаптация под телефон */
 @media (max-width: 900px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
+  .content {
+    grid-template-columns: 1fr;
+  }
 }
