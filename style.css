@@ -20,6 +20,17 @@
   --active: rgba(0,0,0,0.15);
 }
 
+[data-theme="black"] {
+  --bg1: #000000;
+  --bg2: #000000;
+  --card-bg: rgba(20, 20, 20, 0.85);
+  --text: #f5f5f5;
+  --btn1: #0ea5e9;
+  --btn2: #7c3aed;
+  --nav-bg: rgba(20, 20, 20, 0.7);
+  --active: rgba(255,255,255,0.18);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -321,4 +332,11 @@ body {
     transform: translateX(0);
   }
 
-  .b
+  .burger {
+    display: block;
+  }
+
+  .theme-btn {
+    margin-top: 10px;
+  }
+}
