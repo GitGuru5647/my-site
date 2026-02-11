@@ -86,11 +86,12 @@ body {
   font-size: 15px;
   padding: 8px 12px;
   border-radius: 10px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .nav-link:hover {
   background: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
 }
 
 .nav-link.active {
@@ -111,6 +112,22 @@ body {
 
 .theme-btn:hover {
   transform: scale(1.05);
+  background: rgba(255,255,255,0.28);
+}
+
+/* бургер (мобильное меню) */
+.burger {
+  display: none;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.burger:hover {
   background: rgba(255,255,255,0.28);
 }
 
@@ -218,6 +235,47 @@ body {
   font-size: 14px;
 }
 
+/* список проектов */
+.project-list, .exp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item, .exp-item {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project-item:hover, .exp-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.18);
+}
+
+/* кнопка вверх */
+.top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 100;
+}
+
+.top-btn:hover {
+  background: rgba(255,255,255,0.28);
+}
+
 /* Анимация появления */
 @keyframes fadeIn {
   from {
@@ -232,12 +290,34 @@ body {
 
 /* адаптация под телефон */
 @media (max-width: 900px) {
+
   .content {
     grid-template-columns: 1fr;
   }
 
   .nav-right {
-    gap: 10px;
-    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 240px;
+    background: var(--nav-bg);
+    flex-direction: column;
+    padding: 70px 20px 20px 20px;
+    gap: 14px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-right.open {
+    transform: translateX(0);
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .theme-btn {
+    margin-top: 10px;
   }
 }
