@@ -11,9 +11,16 @@
 
     <!-- МЕНЮ -->
     <nav class="nav">
-      <div class="logo">MySite</div>
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">MaxDev</span>
+      </div>
 
       <div class="nav-right">
+        <a href="#about" class="nav-link">Обо мне</a>
+        <a href="#skills" class="nav-link">Навыки</a>
+        <a href="#projects" class="nav-link">Проекты</a>
+
         <button class="theme-btn" id="themeBtn">🌙</button>
       </div>
     </nav>
@@ -29,12 +36,13 @@
       </header>
 
       <main class="content">
-        <section class="card">
+
+        <section id="about" class="card">
           <h2>Обо мне</h2>
-          <p>Меня завут Максим, я создаю сайты, учусь и развиваюсь в веб-разработке. Это мой первый проект на GitHub Pages.</p>
+          <p>Меня зовут Максим, я создаю сайты, учусь и развиваюсь в веб-разработке. Это мой первый проект на GitHub Pages.</p>
         </section>
 
-        <section class="card">
+        <section id="skills" class="card">
           <h2>Навыки</h2>
           <div class="skills">
             <span class="skill">HTML</span>
@@ -44,10 +52,11 @@
           </div>
         </section>
 
-        <section class="card">
+        <section id="projects" class="card">
           <h2>Проекты</h2>
           <p>Скоро тут будет больше проектов. Пока это — стартовая страница.</p>
         </section>
+
       </main>
     </div>
 
@@ -56,4 +65,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
