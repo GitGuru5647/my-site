@@ -1,22 +1,16 @@
-const themeBtn = document.getElementById("themeBtn");
+const btn = document.getElementById("themeBtn");
 const root = document.documentElement;
 
-// Сохраняем тему в localStorage
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  root.setAttribute("data-theme", savedTheme);
-  themeBtn.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+function setTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  btn.textContent = theme === "dark" ? "🌙" : "☀️";
 }
 
-// Переключение темы
-themeBtn.addEventListener("click", () => {
-  const currentTheme = root.getAttribute("data-theme") || "dark";
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
 
-  root.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
-
-  themeBtn.textContent = newTheme === "dark" ? "🌙" : "☀️";
+btn.addEventListener("click", () => {
+  const current = root.getAttribute("data-theme");
+  setTheme(current === "dark" ? "light" : "dark");
 });
-
-console.log("JS работает!");
