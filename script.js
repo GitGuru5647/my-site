@@ -15,7 +15,7 @@ btn.addEventListener("click", () => {
   setTheme(current === "dark" ? "light" : "dark");
 });
 
-// ========== подсветка меню ==========
+// ====== подсветка меню ======
 const links = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section");
 
@@ -31,7 +31,7 @@ function updateActiveLink() {
 updateActiveLink();
 window.addEventListener("scroll", updateActiveLink);
 
-// ========== анимация появления ==========
+// ====== анимация появления ======
 const cards = document.querySelectorAll(".card");
 
 const observer = new IntersectionObserver((entries) => {
