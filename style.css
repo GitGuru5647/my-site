@@ -1,19 +1,21 @@
 :root {
   --bg1: #3b82f6;
   --bg2: #9333ea;
-  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.12);
   --text: #ffffff;
   --btn1: #06b6d4;
   --btn2: #3b82f6;
+  --nav-bg: rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="light"] {
   --bg1: #f3f4f6;
   --bg2: #e5e7eb;
-  --card-bg: rgba(255, 255, 255, 0.65);
+  --card-bg: rgba(255, 255, 255, 0.7);
   --text: #111827;
   --btn1: #2563eb;
   --btn2: #7c3aed;
+  --nav-bg: rgba(255, 255, 255, 0.7);
 }
 
 * {
@@ -31,34 +33,35 @@ body {
 .page {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
 }
 
 /* меню */
 .nav {
   width: 100%;
   max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 10;
+  background: var(--nav-bg);
+  border-radius: 0 0 20px 20px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .logo {
   font-weight: bold;
   font-size: 18px;
-  text-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .theme-btn {
   border: none;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.18);
   color: var(--text);
   padding: 10px 14px;
   border-radius: 12px;
@@ -69,20 +72,26 @@ body {
 
 .theme-btn:hover {
   transform: scale(1.05);
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.28);
+}
+
+/* центрирование контента */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 /* Верхняя карточка */
 .header {
-  width: 100%;
-  max-width: 700px;
   background: var(--card-bg);
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   transition: background 0.5s ease, border-color 0.5s ease;
 }
@@ -117,8 +126,6 @@ body {
 
 /* Контент (портфолио) */
 .content {
-  width: 100%;
-  max-width: 1000px;
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -129,7 +136,7 @@ body {
   background: var(--card-bg);
   border-radius: 20px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -156,13 +163,13 @@ body {
 
 .skill {
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   font-size: 14px;
 }
 
-/* Адаптация под телефон */
+/* адаптация под телефон */
 @media (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
