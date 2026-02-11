@@ -1,41 +1,44 @@
 body {
     margin: 0;
-    height: 100vh;
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     background: linear-gradient(135deg, #3b82f6, #9333ea);
+    color: white;
 }
 
-/* Стеклянная карточка */
-.glass-card {
+.page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Верхняя карточка */
+.header {
+    width: 100%;
+    max-width: 700px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 50px 60px;
     border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-
     border: 1px solid rgba(255, 255, 255, 0.2);
-
-    text-align: center;
-    color: white;
-
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+.header h1 {
     font-size: 42px;
-    margin-bottom: 15px;
+    margin: 0 0 10px 0;
 }
 
-p {
+.header p {
+    margin: 0 0 25px 0;
     font-size: 18px;
     opacity: 0.9;
-    margin-bottom: 30px;
 }
 
 /* Кнопка */
@@ -45,14 +48,66 @@ p {
     font-size: 16px;
     color: white;
     text-decoration: none;
-
     background: linear-gradient(135deg, #06b6d4, #3b82f6);
     border-radius: 12px;
-
     transition: 0.3s ease;
 }
 
 .btn:hover {
     transform: scale(1.08);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Контент (портфолио) */
+.content {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 14px;
+}
+
+/* Адаптация под телефон */
+@media (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }
