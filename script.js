@@ -45,3 +45,33 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 cards.forEach(card => observer.observe(card));
+
+// ====== кнопка вверх ======
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ====== мобильное меню (гамбургер) ======
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("navLinks");
+
+burger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+// закрываем меню при клике на ссылку
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
