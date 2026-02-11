@@ -6,6 +6,7 @@
   --btn1: #06b6d4;
   --btn2: #3b82f6;
   --nav-bg: rgba(255, 255, 255, 0.12);
+  --active: rgba(255,255,255,0.25);
 }
 
 [data-theme="light"] {
@@ -16,6 +17,7 @@
   --btn1: #2563eb;
   --btn2: #7c3aed;
   --nav-bg: rgba(255, 255, 255, 0.7);
+  --active: rgba(0,0,0,0.15);
 }
 
 * {
@@ -28,7 +30,7 @@ body {
   color: var(--text);
   background: linear-gradient(135deg, var(--bg1), var(--bg2));
   transition: background 0.5s ease, color 0.5s ease;
-  scroll-behavior: smooth; /* плавный скролл */
+  scroll-behavior: smooth;
 }
 
 .page {
@@ -89,6 +91,10 @@ body {
 
 .nav-link:hover {
   background: rgba(255,255,255,0.18);
+}
+
+.nav-link.active {
+  background: var(--active);
 }
 
 /* кнопка темы */
@@ -175,7 +181,15 @@ body {
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   transition: background 0.5s ease, border-color 0.5s ease;
-  animation: fadeIn 1s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* анимация появления при скролле */
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .card h2 {
