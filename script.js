@@ -18,3 +18,5 @@ themeBtn.addEventListener("click", () => {
 
   themeBtn.textContent = newTheme === "dark" ? "🌙" : "☀️";
 });
+
+console.log("JS работает!");
