@@ -49,26 +49,30 @@ body {
   min-height: 100vh;
 }
 
-/* меню */
+/* ================= NAV ================= */
 .nav {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 10;
   background: var(--nav-bg);
   border-radius: 0 0 20px 20px;
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.25);
+  animation: navSlide 0.8s ease forwards;
 }
 
-/* логотип */
+@keyframes navSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -82,7 +86,6 @@ body {
   height: 12px;
   background: linear-gradient(135deg, var(--btn1), var(--btn2));
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .nav-right {
@@ -94,22 +97,42 @@ body {
 .nav-link {
   color: var(--text);
   text-decoration: none;
-  font-size: 15px;
   padding: 8px 12px;
   border-radius: 10px;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .nav-link:hover {
   background: rgba(255,255,255,0.18);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
   background: var(--active);
 }
 
-/* кнопка темы */
+/* ================= BUTTONS ================= */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  color: var(--text);
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--btn1), var(--btn2));
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
 .theme-btn {
   border: none;
   background: rgba(255,255,255,0.18);
@@ -122,77 +145,36 @@ body {
 }
 
 .theme-btn:hover {
-  transform: scale(1.05);
-  background: rgba(255,255,255,0.28);
+  transform: scale(1.1);
 }
 
-/* бургер (мобильное меню) */
-.burger {
-  display: none;
-  border: none;
-  background: rgba(255,255,255,0.18);
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 18px;
+.theme-btn:active {
+  transform: scale(0.9);
 }
 
-.burger:hover {
-  background: rgba(255,255,255,0.28);
-}
-
-/* центрирование контента */
+/* ================= CONTENT ================= */
 .container {
-  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Верхняя карточка */
 .header {
   background: var(--card-bg);
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  transition: background 0.5s ease, border-color 0.5s ease;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
   animation: fadeIn 1s ease;
 }
 
-.header h1 {
-  font-size: 42px;
-  margin: 0 0 10px 0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.header p {
-  margin: 0 0 25px 0;
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-/* Кнопка */
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 16px;
-  color: var(--text);
-  text-decoration: none;
-  background: linear-gradient(135deg, var(--btn1), var(--btn2));
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Контент (портфолио) */
 .content {
   margin-top: 30px;
   display: grid;
@@ -200,36 +182,28 @@ body {
   gap: 20px;
 }
 
+/* ================= CARDS ================= */
 .card {
   background: var(--card-bg);
   border-radius: 20px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255,255,255,0.25);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  transition: background 0.5s ease, border-color 0.5s ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.65,.3,1);
 }
 
-/* анимация появления при скролле */
 .card.show {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(0) scale(1);
 }
 
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 22px;
-}
-
-.card p {
-  margin: 0;
-  font-size: 16px;
-  opacity: 0.9;
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.35);
 }
 
 .skills {
@@ -240,39 +214,18 @@ body {
 
 .skill {
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.18);
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
   font-size: 14px;
 }
 
-/* список проектов */
-.project-list, .exp-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.project-item, .exp-item {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 12px 14px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.project-item:hover, .exp-item:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.18);
-}
-
-/* кнопка вверх */
+/* ================= TOP BUTTON ================= */
 .top-btn {
   position: fixed;
   right: 20px;
   bottom: 20px;
   display: none;
+  opacity: 0;
   border: none;
   background: rgba(255,255,255,0.18);
   color: var(--text);
@@ -280,9 +233,7 @@ body {
   border-radius: 12px;
   cursor: pointer;
   font-size: 18px;
-  z-index: 100;
-  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .top-btn.show {
@@ -291,39 +242,24 @@ body {
 }
 
 .top-btn:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.28);
+  transform: translateY(-5px);
 }
 
-/* Анимация появления */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* адаптация под телефон */
+/* ================= MOBILE ================= */
 @media (max-width: 900px) {
-
   .content {
     grid-template-columns: 1fr;
   }
 
   .nav-right {
     position: fixed;
-    top: 0;
     right: 0;
+    top: 0;
     height: 100vh;
     width: 240px;
     background: var(--nav-bg);
     flex-direction: column;
-    padding: 70px 20px 20px 20px;
-    gap: 14px;
+    padding: 70px 20px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
@@ -334,24 +270,5 @@ body {
 
   .burger {
     display: block;
-  }
-
-  .theme-btn {
-    margin-top: 10px;
-  }
-}
-
-.nav {
-  animation: navSlide 0.8s ease forwards;
-}
-
-@keyframes navSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
