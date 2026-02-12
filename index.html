@@ -2,14 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Мой сайт</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxDev — портфолио</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="page">
 
-    <!-- МЕНЮ -->
+    <!-- ================= NAV ================= -->
     <nav class="nav">
       <div class="logo">
         <span class="logo-dot"></span>
@@ -22,20 +24,30 @@
         <a href="#projects" class="nav-link">Проекты</a>
         <a href="#experience" class="nav-link">Опыт</a>
         <a href="#contact" class="nav-link">Контакты</a>
-        <button class="theme-btn" id="themeBtn">🌙</button>
+
+        <button class="theme-btn" id="themeBtn" aria-label="Сменить тему">
+          🌙
+        </button>
       </div>
 
-      <button class="burger" id="burger">
+      <button class="burger" id="burger" aria-label="Открыть меню">
         ☰
       </button>
     </nav>
 
-    <!-- КОНТЕНТ -->
+    <!-- ================= CONTENT ================= -->
     <div class="container">
+
       <header class="header">
         <h1>Привет 👋</h1>
         <p>Это мой первый стильный сайт на GitHub Pages 🚀</p>
-        <a href="https://t.me/HEGR_FOV" target="_blank" class="btn">
+
+        <a
+          href="https://t.me/HEGR_FOV"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+        >
           Перейти в мой TGK
         </a>
       </header>
@@ -44,7 +56,10 @@
 
         <section id="about" class="card">
           <h2>Обо мне</h2>
-          <p>Меня зовут Максим, я создаю сайты, учусь и развиваюсь в веб-разработке. Это мой первый проект на GitHub Pages.</p>
+          <p>
+            Меня зовут Максим, я создаю сайты, учусь и развиваюсь
+            в веб-разработке. Это мой первый проект на GitHub Pages.
+          </p>
         </section>
 
         <section id="skills" class="card">
@@ -73,10 +88,11 @@
           <h2>Опыт / Образование</h2>
           <ul class="exp-list">
             <li class="exp-item">
-              <strong>Учусь веб-разработке</strong> — самостоятельно, по курсам и практике.
+              <strong>Веб-разработка</strong> — самостоятельное обучение,
+              курсы и практика.
             </li>
             <li class="exp-item">
-              <strong>Проекты</strong> — делаю простые сайты и учусь на практике.
+              <strong>Проекты</strong> — простые сайты и эксперименты.
             </li>
           </ul>
         </section>
@@ -84,20 +100,6 @@
         <section id="contact" class="card">
           <h2>Контакты</h2>
           <p>Напиши мне в Telegram:</p>
-          <a href="https://t.me/HEGR_FOV" target="_blank" class="btn">Telegram</a>
-        </section>
 
-      </main>
-    </div>
-
-    <!-- кнопка вверх -->
-  <button class="top-btn" id="topBtn">⬆</button>
-
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
+          <a
+            hre
